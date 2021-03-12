@@ -15,5 +15,21 @@
                 </field>
             </field>
         </record>
+
+        <!-- res.partner search view -->
+        <record id="view_res_partner_filter2" model="ir.ui.view">
+            <field name="name">res.partner.select2</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"></field>
+            <field name="arch" type="xml">
+                <search string="Search Partner">
+                    <!-- Add your fields here -->
+                    <filter string="Instructors" 
+                        name="instructor" domain="[('is_instructor','=',1)]"
+                            help="Instructor Partners" />
+                </search>
+            </field>
+        </record>
+
     </data>
 </odoo>
