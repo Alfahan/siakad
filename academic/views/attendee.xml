@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- Add you code here -->
+        <!-- academic.attendee tree view -->
+        <record id="view_academic_attende_tree" model="ir.ui.view">
+            <field name="name">academic.attendee.view.tree</field>
+            <field name="model">academic.attendee</field>
+            <field name="arch" type="xml">
+                <tree string="Attende">
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="session_id"/>
+                    <field name="partner_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- academic.attendee form view -->
+        <record id="view_academic_attendee_form" model="ir.ui.view">
+            <field name="name">academic.attendee.view.form</field>
+            <field name="model">academic.attendee</field>
+            <field name="arch" type="xml">
+                <form string="Attende">
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="name"/>
+                            <field name="session_id"/>
+                            <field name="partner_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
