@@ -37,9 +37,24 @@
                         </group>
 
                         <notebook>
+                            
                             <page string="Description">
                                 <field name="description"/>
                             </page>
+                            
+                            <page string="Session">
+                                <field name="session_ids">
+                                    <tree string="session">
+                                        <field name="name"/>
+                                        <field name="instructor_id"/>
+                                        <field name="start_date"/>
+                                        <field name="duration"/>
+                                        <field name="seats"/>
+                                        <field name="active"/>
+                                    </tree>
+                                </field>
+                            </page>
+
                         </notebook>
                     </sheet>
                 </form>
