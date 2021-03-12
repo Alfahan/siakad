@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
     <data>
+        <!-- Action Course  -->
         <record id="action_course_list" model="ir.actions.act_window">
             <field name="name">Daftar Course</field>
             <field name="res_model">academic.course</field>
@@ -14,9 +15,30 @@
             </field>
         </record>
 
+        <!-- Action Session  -->
+        <!-- academic.session action window -->
+        <record id="action_session_list" model="ir.actions.act_window">
+            <field name="name">Daftar Session</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">academic.session</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                </p>
+            </field>
+        </record>
+
+
         <menuitem id="academic_0" name="Academic" sequence="2"/>
         <menuitem id="academic_1" name="Academic" parent="academic_0" sequence="2"/>
+
         <menuitem id="menu_academic_course" name="Course" parent="academic_1" action="action_course_list" sequence="2"/>
+
+        <menuitem id="menu_academic_sessio" name="session" parent="academic_1" action="action_session_list" sequence="2"/>
 
     </data>
 </odoo>
