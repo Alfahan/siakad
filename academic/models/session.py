@@ -16,6 +16,13 @@ class Course(models.Model):
     seats = fields.Integer(string='Seats')
     
     active = fields.Boolean("Is Active", default=True)
+
+    attendee_ids = fields.One2many(
+        comodel_name='academic.attendee', 
+        # FK 
+        inverse_name='session_id', 
+        string='Session')
+    
     
     
     
