@@ -44,15 +44,28 @@
                             
                             <page string="Session">
                                 <field name="session_ids">
-                                    <tree string="session">
-                                        <field name="name"/>
+                                    <tree string="session" editable="bottom">
                                         <field name="instructor_id"/>
+                                        <field name="name"/>
                                         <field name="start_date"/>
                                         <field name="duration"/>
                                         <field name="seats"/>
                                         <field name="active"/>
                                     </tree>
+                                
+                                    <form>
+                                        <group>
+                                            <field name="instructor_id"/>
+                                            <field name="name"/>
+                                            <field name="start_date"/>
+                                            <field name="duration"/>
+                                            <field name="seats"/>
+                                        </group>
+                                    </form>
+
                                 </field>
+
+
                             </page>
 
                         </notebook>
