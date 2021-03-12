@@ -14,9 +14,9 @@
             </field>
         </record>
 
-        <menuitem id="academic_0" name="Academic" sequence="20"/>
-        <menuitem id="academic_1" name="Academic" parent="academic_0" sequence="20"/>
-        <menuitem id="menu_academic_course" name="Course" parent="academic_1" action="action_course_list" sequence="20"/>
+        <menuitem id="academic_0" name="Academic" sequence="2"/>
+        <menuitem id="academic_1" name="Academic" parent="academic_0" sequence="2"/>
+        <menuitem id="menu_academic_course" name="Course" parent="academic_1" action="action_course_list" sequence="2"/>
 
     </data>
 </odoo>
