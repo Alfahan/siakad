@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="action_course_list" model="ir.actions.act_window">
+            <field name="name">Daftar Course</field>
+            <field name="res_model">academic.course</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK  -->
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="academic_0" name="Academic" sequence="20"/>
+        <menuitem id="academic_1" name="Academic" parent="academic_0" sequence="20"/>
+        <menuitem id="menu_academic_course" name="Course" parent="academic_1" action="action_course_list" sequence="20"/>
+
+    </data>
+</odoo>
