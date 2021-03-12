@@ -36,8 +36,8 @@
                             <group>
                                 <field name="course_id"/>
                                 <field name="instructor_id" 
-                                    domain="[('is_instructor','=',True)]"/>
-                                            <!-- sesuatu adalah sesuatu -->
+                                    domain="['|',('is_instructor','=',True),('category_id','ilike','pelatih')]"/>
+                                            <!-- sesuatu adalah sesuatu                     incase sensitive-->              
                                 <field name="start_date"/>
                             </group>
                             <group>
