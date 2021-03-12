@@ -10,6 +10,7 @@
     "description" : "Ini adalah addon Akademik",
     "data" : [
         "views/menu.xml",
-        "views/course.xml"
+        "views/course.xml",
+        "views/session.xml"
     ],
 }

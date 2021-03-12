@@ -9,4 +9,11 @@ class Course(models.Model):
         comodel_name='res.users', 
         string='Responsible', 
         required=True)
+
+    session_ids = fields.One2many(
+        comodel_name='academic.session',
+        string='Session', 
+        # FK (Foreign Key)
+        inverse_name='course_id')
+    
     
