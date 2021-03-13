@@ -30,8 +30,10 @@ class Course(models.Model):
     # Function
     def _compute_taken_seats(self):
         for x in self:
-            x.taken_seats = 99.9
-    
+            if x.seats > 0:
+                x.taken_seats = 100.0 * len(x.attendee_ids) / x.seats
+            else:
+                x.taken_seats = 0.0
     
     
     
