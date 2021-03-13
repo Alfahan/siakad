@@ -27,6 +27,7 @@ class Course(models.Model):
         string='Taken Seats',
         compute='_compute_taken_seats')
     
+    
     # Function
     def _compute_taken_seats(self):
         for x in self:
@@ -35,5 +36,12 @@ class Course(models.Model):
             else:
                 x.taken_seats = 0.0
     
+    # Onchange
+    @api.onchange('seats')
+    def ochange_seats(self):
+        if self.seats > 0:
+                self.taken_seats = 100.0 * len(self.attendee_ids) / self.seats
+        else:
+            self.taken_seats = 0.0
     
     
