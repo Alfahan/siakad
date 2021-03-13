@@ -15,7 +15,7 @@
                     <field name="start_date"/>
                     <field name="duration"/>
                     <field name="seats"/>
-                    <field name="taken_seats"/>
+                    <field name="taken_seats" widget="progressbar"/>
                     <field name="active"/>
                 </tree>
             </field>
@@ -44,7 +44,7 @@
                             <group>
                                 <field name="duration"/>
                                 <field name="seats"/>
-                                <field name="taken_seats"/>
+                                <field name="taken_seats" widget="progressbar"/>
                                 <field name="active"/>
                             </group>
                         </group>
