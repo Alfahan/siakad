@@ -22,6 +22,15 @@ class Course(models.Model):
         # FK 
         inverse_name='session_id', 
         string='Session')
+
+    taken_seats = fields.Float(
+        string='Taken Seats',
+        compute='_compute_taken_seats')
+    
+    # Function
+    def _compute_taken_seats(self):
+        for x in self:
+            x.taken_seats = 99.9
     
     
     
