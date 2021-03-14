@@ -15,5 +15,11 @@ class Course(models.Model):
         string='Session', 
         # FK (Foreign Key)
         inverse_name='course_id')
+
+    
+    # Constraints SQL unique
+    _sql_constraints = [
+        ('sql_cek_name','UNIQUE(name)','Name must be Unique')
+    ]
     
     
