@@ -48,12 +48,19 @@ class Course(models.Model):
     def _cek_instructor(self):
         for session in self:
             # session.instructor_id ada di dalam session.attendee_ids: partner_id
-            x = []
+            # cara 1
+            # x = []
 
-            for attendee in session.attendee_ids:
-                x.append(attendee.partner_id.id)
+            # for attendee in session.attendee_ids:
+            #     x.append(attendee.partner_id.id)
 
             # x = [1,2,3,4]
+
+
+            # cara 2
+            # Baca dari Kanan
+            x = [attendee.partner_id.id for attendee in session.attendee_ids]
+
 
             if session.instructor_id.id in x:
                 return False
