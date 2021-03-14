@@ -1,7 +1,11 @@
 from odoo import api, fields, models
+import time
 
 class Course(models.Model):
     _name = 'academic.session'
+
+    # def search_date(self:
+    #     return time.strftime("%Y-%m-%d"))
 
     name = fields.Char("Nama", required=True, size=100)
     
@@ -9,7 +13,8 @@ class Course(models.Model):
     
     instructor_id = fields.Many2one(comodel_name='res.partner', string='Instructor')
     
-    start_date = fields.Date(string='Start Date')
+    # start_date = fields.Date(string='Start Date', default=search_date)
+    start_date = fields.Date(string='Start Date', default=lambda self: time.strftime("%Y-%m-%d"))
     
     duration = fields.Integer(string='Duration')
     
