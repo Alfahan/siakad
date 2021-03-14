@@ -64,7 +64,7 @@
 
         <!-- academic.session calendar view -->
         <record id="view_academic_session_calendar" model="ir.ui.view">
-            <field name="name">view_academic_session_calendar</field>
+            <field name="name">academic.session.view.calendar</field>
             <field name="model">academic.session</field>
             <field name="arch" type="xml">
                 <calendar string="Session Calendar" date_start="start_date" color="course_id">
@@ -73,6 +73,25 @@
                 </calendar>
             </field>
         </record>
+
+
+        <!-- academic.session search view -->
+        <record id="view_academic_session_search" model="ir.ui.view">
+            <field name="name">academic.session.view.search</field>
+            <field name="model">academic.session</field>
+            <field name="arch" type="xml">
+                <search string="Session">
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="instructor_id"/>
+
+                    <filter string="Non zero duration"
+                        domain="[('duration','&gt;',0)]"/>
+                </search>
+            </field>
+        </record>
+
+        
         
     </data>
 </odoo>
