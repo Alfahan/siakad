@@ -44,4 +44,24 @@ class Course(models.Model):
         else:
             self.taken_seats = 0.0
     
+    @api.multi
+    def _cek_instructor(self):
+        for session in self:
+            # session.instructor_id ada di dalam session.attendee_ids: partner_id
+            x = []
+
+            for attendee in session.attendee_ids:
+                x.append(attendee.partner_id.id)
+
+            # x = [1,2,3,4]
+
+            if session.instructor_id.id in x:
+                return False
+        
+        return True
+
+    # Constraint (Validasi)
+    _constraints = [(_cek_instructor, 
+        'Instruktur tidak boleh merangkap jadi Attendee', 
+        ['instructor_id','attendee_ids'])]
     
