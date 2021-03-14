@@ -14,3 +14,8 @@ class Attendee(models.Model):
         string='Partner')
     
         
+    # Constraint Sql
+    _sql_constraints = [
+        ('sql_cek_name','UNIQUE(name)','No Regist same as other'),
+        ('sql_cek_attendee','UNIQUE(session_id, partner_id)','this person is already registered')
+    ]

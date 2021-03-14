@@ -71,4 +71,3 @@ class Course(models.Model):
     _constraints = [(_cek_instructor, 
         'Instruktur tidak boleh merangkap jadi Attendee', 
         ['instructor_id','attendee_ids'])]
-    

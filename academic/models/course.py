@@ -19,7 +19,8 @@ class Course(models.Model):
     
     # Constraints SQL unique
     _sql_constraints = [
-        ('sql_cek_name','UNIQUE(name)','Name must be Unique')
+        ('sql_cek_name','UNIQUE(name)','Name must be Unique'),
+        ('sql_cek_desc','CHECK(name <> description)','Name and Desc dont same')
     ]
     
     
