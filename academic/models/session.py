@@ -1,7 +1,7 @@
 from odoo import api, fields, models
 import time
 
-class Course(models.Model):
+class Session(models.Model):
     _name = 'academic.session'
 
     # def search_date(self:
@@ -76,3 +76,12 @@ class Course(models.Model):
     _constraints = [(_cek_instructor, 
         'Instruktur tidak boleh merangkap jadi Attendee', 
         ['instructor_id','attendee_ids'])]
+
+    @api.multi
+    def copy(self,default=None):
+        #inherit duplicate (modif field name)
+        default = dict(default or {}, name=self.name + " copy")
+        # print "******"
+        # print default
+        # print "******"
+        return super(Session, self).copy(default=default)
