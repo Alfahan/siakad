@@ -7,7 +7,8 @@
             <field name="name">academic.session.view.tree</field>
             <field name="model">academic.session</field>
             <field name="arch" type="xml">
-                <tree string="Session">
+                <tree string="Session" 
+                    colors="red: taken_seats &gt; 60; green: taken_seats &lt; 20">
                     <!-- Add your fields here -->
                     <field name="name"/>
                     <field name="course_id"/>
@@ -58,6 +59,18 @@
                         </group>
                     </sheet>
                 </form>
+            </field>
+        </record>
+
+        <!-- academic.session calendar view -->
+        <record id="view_academic_session_calendar" model="ir.ui.view">
+            <field name="name">view_academic_session_calendar</field>
+            <field name="model">academic.session</field>
+            <field name="arch" type="xml">
+                <calendar string="Session Calendar" date_start="start_date" color="course_id">
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                </calendar>
             </field>
         </record>
         
