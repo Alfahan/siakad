@@ -13,7 +13,10 @@ class Attendee(models.Model):
         comodel_name='academic.course',
         string='Course',
         # Terisi dengan cara mencari (Link)
-        related="session_id.course_id")
+        related="session_id.course_id",
+        # Terbentuk field, tidak hanya memory (agar bisa filter)
+        store=True
+        )
     
     partner_id = fields.Many2one(
         comodel_name='res.partner', 
