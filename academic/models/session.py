@@ -1,6 +1,11 @@
 from odoo import api, fields, models
 import time
 
+STATE = [
+            ('draft', 'Draft'), 
+            ('confirmed', 'Confirmed'),
+            ('done', 'Done')]
+
 class Session(models.Model):
     _name = 'academic.session'
 
@@ -33,9 +38,16 @@ class Session(models.Model):
         compute='_compute_taken_seats')
 
     image_small = fields.Binary(string='Image')
-    
-    
-    
+
+
+    state = fields.Selection(string='State', 
+        # State / Tuple
+        selection=STATE,
+        readonly=True,
+        required=True,
+        default=STATE[0][0]
+        )
+       
     # Function
     def _compute_taken_seats(self):
         for x in self:
@@ -88,3 +100,15 @@ class Session(models.Model):
         # print default
         # print "******"
         return super(Session, self).copy(default=default)
+
+    @api.multi
+    def action_confirm(self):
+        self.state = STATE[1][0]
+
+    @api.multi
+    def action_done(self):
+        self.state = STATE[2][0]
+    
+    @api.multi
+    def action_draft(self):
+        self.state = STATE[0][0]
