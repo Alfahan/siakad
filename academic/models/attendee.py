@@ -8,6 +8,12 @@ class Attendee(models.Model):
     session_id = fields.Many2one(
         comodel_name='academic.session', 
         string='Session')
+
+    course_id = fields.Many2one(
+        comodel_name='academic.course',
+        string='Course',
+        # Terisi dengan cara mencari (Link)
+        related="session_id.course_id")
     
     partner_id = fields.Many2one(
         comodel_name='res.partner', 

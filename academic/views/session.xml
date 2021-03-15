@@ -40,6 +40,7 @@
                                     domain="['|',('is_instructor','=',True),('category_id','ilike','pelatih')]"/>
                                             <!-- sesuatu adalah sesuatu                     incase sensitive-->              
                                 <field name="start_date"/>
+                                <field name="image_small" widget="image" class="oe_left oe_avatar"/>
                             </group>
                             <group>
                                 <field name="duration"/>
@@ -117,15 +118,16 @@
             <field name="name">academic.session.view.kanban</field>
             <field name="model">academic.session</field>
             <field name="arch" type="xml">
-                <kanban>
+                <kanban default_group_by="course_id">
                     <!-- Add your fields here -->
                     <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_vignette">
                                 <a type="open">
+                                <!-- t-att-src="kanban_image('res.partners', 'image_medium',record.id.raw_value)" -->
                                     <img t-att-src="kanban_image('academic.session',
-                                        'image_small',
-                                        record.id)"
+                                        'image_small', record.id
+                                        )" alt="avatar"
                                      class="o_kanban_image"/>
                                 </a>
                                 <div class="oe_kanban_details">

@@ -31,6 +31,9 @@ class Session(models.Model):
     taken_seats = fields.Float(
         string='Taken Seats',
         compute='_compute_taken_seats')
+
+    image_small = fields.Binary(string='Image')
+    
     
     
     # Function
