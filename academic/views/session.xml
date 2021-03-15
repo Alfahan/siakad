@@ -107,7 +107,46 @@
                 <graph string="Session" type="bar">
                     <!-- Add your fields here -->
                     <field name="instructor_id"/>
+                    <field name="duration"/>
                 </graph>
+            </field>
+        </record>
+
+        <!-- academic.session kanban view -->
+        <record id="view_academic_session_kanban" model="ir.ui.view">
+            <field name="name">academic.session.view.kanban</field>
+            <field name="model">academic.session</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <!-- Add your fields here -->
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_vignette">
+                                <a type="open">
+                                    <img t-att-src="kanban_image('academic.session',
+                                        'image_small',
+                                        record.id)"
+                                     class="o_kanban_image"/>
+                                </a>
+                                <div class="oe_kanban_details">
+                                    <h4>
+                                        <a type="open">
+                                            <field name="name"/>
+                                        </a>
+                                    </h4>
+                                    <ul>
+                                        <li>
+                                            Seats : <field name="seats"/>
+                                        </li>
+                                        <li>
+                                            Taken : <field name="taken_seats"/>    
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
             </field>
         </record>
 
