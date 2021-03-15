@@ -35,5 +35,31 @@
                 </form>
             </field>
         </record>
+
+        <!-- academic.attendee search view -->
+        <record id="view_academic_attendee_search" model="ir.ui.view">
+            <field name="name">academic.attendee.view.search</field>
+            <field name="model">academic.attendee</field>
+            <field name="arch" type="xml">
+                <search string="Attendee">
+                    <!-- Add your fields here -->
+                    <filter name="course_id"
+                        string="Course" 
+                        domain="[]"
+                        context="{'group_by':'course_id'}"
+                    />
+                    <filter name="session_id"
+                        string="Session" 
+                        domain="[]"
+                        context="{'group_by':'session_id'}"
+                    />
+                    <filter name="partner_id"
+                        string="Partner" 
+                        domain="[]"
+                        context="{'group_by':'partner_id'}"
+                    />
+                </search>
+            </field>
+        </record>
     </data>
 </odoo>
