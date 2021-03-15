@@ -7,8 +7,7 @@
             <field name="name">academic.session.view.tree</field>
             <field name="model">academic.session</field>
             <field name="arch" type="xml">
-                <tree string="Session" 
-                    colors="red: taken_seats &gt; 60; green: taken_seats &lt; 20">
+                <tree string="Session">
                     <!-- Add your fields here -->
                     <field name="name"/>
                     <field name="course_id"/>
@@ -85,13 +84,32 @@
                     <field name="name"/>
                     <field name="instructor_id"/>
 
-                    <filter string="Non zero duration"
-                        domain="[('duration','&gt;',0)]"/>
+                    <filter name="duration" string="Non zero duration"
+                        domain="[('duration','>',0)]"/>
+
+                    <filter name="course" string="Course" 
+                        domain="[]" 
+                        context="{'group_by':'course_id'}"/>
+
+                    <filter name="instructor" string="Instructor" 
+                        domain="[]" 
+                        context="{'group_by':'instructor_id'}"/>
+
                 </search>
             </field>
         </record>
 
-        
-        
+        <!-- academic.session graph view -->
+        <record id="view_academic_session_graph" model="ir.ui.view">
+            <field name="name">academic.session.view.graph</field>
+            <field name="model">academic.session</field>
+            <field name="arch" type="xml">
+                <graph string="Session" type="bar">
+                    <!-- Add your fields here -->
+                    <field name="instructor_id"/>
+                </graph>
+            </field>
+        </record>
+
     </data>
 </odoo>
